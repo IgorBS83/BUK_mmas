@@ -65,6 +65,7 @@ int diode_sensor_cnt = 0, diode_msg_cnt = 0;
 int diode_sensor_fl = 0, diode_msg_fl = 0;
 int rs422_start_en = true;
 uint16_t altera_diodes = 0;
+int fl_ad7606_fail;
 
 typedef struct
 {
@@ -428,6 +429,7 @@ void EXTI15_10_IRQHandler()//AD7606 Busy down
 {
 	if(EXTI->PR & EXTI_PR_PR12) 
 	{
+		fl_ad7606_fail = 0;
 		EXTI->PR = EXTI_PR_PR12;
 		spi2_cnt = 0;
 		SPI2->DR = 0;
@@ -450,9 +452,25 @@ void I2C2_EV_IRQHandler()
 void TIM4_IRQHandler()//AD7606 start conversion
 {
 	TIM4->SR = 0;
-	GPIOG->ODR &= ~GPIO_ODR_ODR_6;//AD7606 convst down(start conversion)
-	diode_sensor_cnt++;
-	GPIOG->ODR |= GPIO_ODR_ODR_6;//AD7606 convst up(turns busy up)
+	if(fl_ad7606_fail == 0){
+		GPIOG->ODR &= ~GPIO_ODR_ODR_6;//AD7606 convst down(start conversion)
+		diode_sensor_cnt++;
+		GPIOG->ODR |= GPIO_ODR_ODR_6;//AD7606 convst up(turns busy up)
+		fl_ad7606_fail = 1;
+	}
+	else{
+		switch(fl_ad7606_fail){
+			case 1:
+			GPIOD->ODR |= GPIO_ODR_ODR_11;//AD7606 reset up
+			fl_ad7606_fail = 2;
+			break;
+		case 2:
+			fl_ad7606_fail = 0;
+			GPIOD->ODR &= ~GPIO_ODR_ODR_11;//AD7606 reset down
+		  altera_diodes &= ~DIODE_HL3;
+			break;
+		}
+	}
 }
 
 void USART2_IRQHandler()
@@ -570,6 +588,7 @@ int main()
 	mDMA_init();
 
 	altera_diodes = DIODE_HL3;
+  fl_ad7606_fail = 0;	
 	
 	U3TX_cnt = 0xffff;
 	while(1)
