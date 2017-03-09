@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\mmbk.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\mmbk.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Sat Sep 24 15:14:18 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Thu Sep 22 12:31:54 2016
 <BR><P>
 <H3>Maximum Stack Usage =        100 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -120,8 +120,8 @@ Function Pointers
  <LI><a href="#[40]">UART4_IRQHandler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
  <LI><a href="#[41]">UART5_IRQHandler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
  <LI><a href="#[31]">USART1_IRQHandler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
- <LI><a href="#[32]">USART2_IRQHandler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
- <LI><a href="#[33]">USART3_IRQHandler</a> from main.o(i.USART3_IRQHandler) referenced from startup_stm32f407xx.o(RESET)
+ <LI><a href="#[32]">USART2_IRQHandler</a> from main.o(i.USART2_IRQHandler) referenced from startup_stm32f407xx.o(RESET)
+ <LI><a href="#[33]">USART3_IRQHandler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
  <LI><a href="#[53]">USART6_IRQHandler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
  <LI><a href="#[7]">UsageFault_Handler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
  <LI><a href="#[c]">WWDG_IRQHandler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
@@ -552,7 +552,7 @@ Global Symbols
 <P><STRONG><a name="[31]"></a>USART1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f407xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[32]"></a>USART2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f407xx.o(.text))
+<P><STRONG><a name="[33]"></a>USART3_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f407xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
 <P><STRONG><a name="[53]"></a>USART6_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f407xx.o(.text))
@@ -645,7 +645,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;income_messages
 </UL>
 
-<P><STRONG><a name="[34]"></a>EXTI15_10_IRQHandler</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, main.o(i.EXTI15_10_IRQHandler))
+<P><STRONG><a name="[34]"></a>EXTI15_10_IRQHandler</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, main.o(i.EXTI15_10_IRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
 <P><STRONG><a name="[2d]"></a>I2C2_EV_IRQHandler</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, main.o(i.I2C2_EV_IRQHandler))
@@ -657,13 +657,13 @@ Global Symbols
 <P><STRONG><a name="[5d]"></a>SystemInit</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, system_stm32f4xx.o(i.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(.text)
 </UL>
-<P><STRONG><a name="[2a]"></a>TIM4_IRQHandler</STRONG> (Thumb, 112 bytes, Stack size 0 bytes, main.o(i.TIM4_IRQHandler))
+<P><STRONG><a name="[2a]"></a>TIM4_IRQHandler</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, main.o(i.TIM4_IRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[33]"></a>USART3_IRQHandler</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, main.o(i.USART3_IRQHandler))
+<P><STRONG><a name="[32]"></a>USART2_IRQHandler</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, main.o(i.USART2_IRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[79]"></a>applicate_in_messages</STRONG> (Thumb, 202 bytes, Stack size 24 bytes, main.o(i.applicate_in_messages))
+<P><STRONG><a name="[79]"></a>applicate_in_messages</STRONG> (Thumb, 236 bytes, Stack size 24 bytes, main.o(i.applicate_in_messages))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = applicate_in_messages &rArr; ALLBUS_send &rArr; Calc_crc256
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;form_message_mmias
@@ -686,7 +686,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[82]"></a>mDMA_init</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, main.o(i.mDMA_init))
+<P><STRONG><a name="[82]"></a>mDMA_init</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, main.o(i.mDMA_init))
 <BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -714,7 +714,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7f]"></a>mUart_init</STRONG> (Thumb, 102 bytes, Stack size 8 bytes, main.o(i.mUart_init))
+<P><STRONG><a name="[7f]"></a>mUart_init</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, main.o(i.mUart_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = mUart_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
@@ -722,7 +722,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[6c]"></a>main</STRONG> (Thumb, 232 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[6c]"></a>main</STRONG> (Thumb, 234 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = main &rArr; income_messages &rArr; ALLBUS_recieve &rArr; Calc_crc256
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mUart_init
