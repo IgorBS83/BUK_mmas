@@ -202,7 +202,7 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>U3RX_buf</ItemText>
+          <ItemText>Out_Data</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>
