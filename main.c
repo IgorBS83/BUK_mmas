@@ -497,7 +497,7 @@ void form_message_mmias()
 	Out_Data[10-5] = (uint8_t)((alt_sq.sq30 << 6) | (alt_sq.sq28 << 4) | (alt_sq.sq29 << 2) | alt_sq.sq22);
 	Out_Data[11-5] = (uint8_t)((alt_sq.sq9 << 6) | (alt_sq.sq3 << 4) | (alt_sq.sq18 << 2) | alt_sq.sq20);
 	Out_Data[12-5] = (uint8_t)((alt_sq.sq37 << 6) | (alt_sq.sq36 << 4) | (alt_sq.sq35 << 2) | alt_sq.sq10);
-	Out_Data[13-5] = (uint8_t)((*(uint16_t*)ALTERA_BASE + (9 << 1)) >> 1);
+	Out_Data[13-5] = (uint8_t)((*(uint16_t*)(ALTERA_BASE + (9 << 1))) >> 1);
 	data = SPI2_RX[0];//current A2-U2
 	Out_Data[14-5] = (uint8_t)(data >> 8);
 	Out_Data[15-5] = (uint8_t)data;
